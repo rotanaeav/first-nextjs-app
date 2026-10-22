@@ -7,8 +7,8 @@ export default function CartDisplay() {
   const [items, setItems] = useState<Product[]>([]);
 
   return (
-    <section>
-      <div className="grid grid-cols-4 gap-4">
+    <section className="flex flex-col justify-center items-center gap-4">
+      <div className="grid grid-cols-4 gap-20">
         {Products.map((product, index) => (
           <section
             key={index}
@@ -33,7 +33,7 @@ export default function CartDisplay() {
 
               <div className="flex items-center justify-between gap-4 border-t border-gray-100 pt-4">
                 <p className="text-xl font-bold text-gray-900">
-                  ${product.price > 1000 ? product.price : 1000}
+                  ${product.price}
                 </p>
 
                 <button
@@ -47,8 +47,8 @@ export default function CartDisplay() {
           </section>
         ))}
       </div>
-      <h2 className="text-2xl my-4">Carts Items</h2>
-      <div className="grid grid-cols-4 gap-4 mt-8">
+      <h2 className="text-2xl">Carts Items</h2>
+      <div className="grid grid-cols-5 gap-8">
         {items.map((item, index) => (
           <ProductCard
             key={index}

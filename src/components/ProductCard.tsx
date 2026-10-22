@@ -26,11 +26,9 @@ export default function ProductCard(props: Product) {
   return (
     <section className="w-75 overflow-hidden rounded-2xl border border-gray-200 bg-white">
       <img
-        width={300}
-        height={300}
         src={props.image}
         alt={props.title}
-        className="h-75 w-full object-cover"
+        className="h-50 w-full object-contain"
       />
 
       <div className="space-y-4 p-5">
@@ -44,7 +42,8 @@ export default function ProductCard(props: Product) {
 
         <div className="flex items-center justify-between gap-4 border-t border-gray-100 pt-4">
           <p className="text-xl font-bold text-gray-900">
-            ${props.price > 1000 ? props.price : 1000}
+            ${props.price}
+            {/* ${props.price > 1000 ? props.price : 1000} */}
           </p>
 
           <button className="rounded-lg bg-gray-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-700 active:scale-95">

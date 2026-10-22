@@ -28,7 +28,7 @@ export default function ProductCard(props: Product) {
       <img
         src={props.image}
         alt={props.title}
-        className="h-50 w-full object-contain"
+        className="h-48 w-full object-cover"
       />
 
       <div className="space-y-4 p-5">

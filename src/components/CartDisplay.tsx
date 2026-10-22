@@ -19,7 +19,7 @@ export default function CartDisplay() {
               height={300}
               src={product.image}
               alt={product.title}
-              className="h-75 w-full object-cover"
+              className="h-50 w-full object-cover"
             />
 
             <div className="space-y-4 p-5">

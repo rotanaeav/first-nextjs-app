@@ -4,34 +4,38 @@ export type Product = {
   image: string;
   price: number;
 };
+
 export const Products: Product[] = [
   {
-    title: "Iphone 17",
-    description: "Apple Iphone is most value SmartPhone in the world . ",
-    image:
-      "https://www.apple.com/newsroom/images/2025/09/apple-debuts-iphone-17/tile/Apple-iPhone-17-hero-250909-lp.jpg.news_app_ed.jpg",
-    price: 850,
-  },
-  {
-    title: "Iphone 17 Pro",
-    description: "Apple Iphone 17 Pro is most value SmartPhone in the world .",
-    image:
-      "https://www.ione.com.kh/wp-content/uploads/2025/09/iphone-17-pro-4-cambodia.png",
-    price: 999,
-  },
-  {
-    title: "Iphone 18",
-    description: "Apple Iphone 18 is most value SmartPhone in the world .",
-    image:
-      "https://cdn.shopify.com/s/files/1/0742/8341/7918/files/0_4323efc8-3bf5-4966-8eff-37afe65aab34.png?v=1782283751",
-    price: 1200,
-  },
-  {
-    title: "Iphone 18 Pro Max",
+    title: "Classic Cheeseburger",
     description:
-      "Apple Iphone 18 Pro Max is most value SmartPhone in the world .",
+      "Juicy grilled beef patty topped with melted cheddar cheese, lettuce, tomato, pickles, sauce.",
     image:
-      "https://static0.anpoimages.com/wordpress/wp-content/uploads/2025/09/iphone-17-pro-max.png?q=70&fit=contain&w=420&dpr=1",
-    price: 1500,
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnY5hG51JtHAfTvy0QCG6K49BtqWP6l9pbMv5y4Wq5XuawFOBWyfWdEXSV&s=10",
+    price: 8.99,
+  },
+  {
+    title: "Bacon BBQ Burger",
+    description:
+      "Double crispy smash patties layered with smoky bacon, American cheese, crispy onion rings, sauce.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxbvmAy6vdM4rtxhizowWRN3jLEO09eernbKtI6LZbd4O5i9s4FxLQC44&s=10",
+    price: 11.5,
+  },
+  {
+    title: "Spicy Chicken Burger",
+    description:
+      "Crispy fried buttermilk chicken breast tossed in hot cayenne glaze, topped with creamy.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIhmwSbu2hmh5RV5_ZMO05ou9onjAnr3JpTV1r3n5HHg&s=10",
+    price: 10.0,
+  },
+  {
+    title: "Mushroom Swiss Burger",
+    description:
+      "Flame-grilled Angus beef topped with sautéed wild mushrooms, Swiss cheese.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWl6zcFDB-ZO6pU3kpVTI5f3Zt-Xs2O2UsODsuzcUEYA&s=10",
+    price: 13.99,
   },
 ];

@@ -5,6 +5,7 @@ import { Product, Products } from "@/lib/product";
 
 export default function CartDisplay() {
   const [items, setItems] = useState<Product[]>([]);
+  console.log("helo");
 
   return (
     <section className="flex flex-col justify-center items-center gap-4">

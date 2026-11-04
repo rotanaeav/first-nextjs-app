@@ -5,7 +5,7 @@ import { Suspense, use } from "react";
 export default function ProductPage({
   params,
 }: {
-  params: Promise<{ id: number }>;
+  params: Promise<{ id: string }>;
 }) {
   const { id } =  use(params);
 

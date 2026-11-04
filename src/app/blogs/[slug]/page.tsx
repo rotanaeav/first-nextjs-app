@@ -5,7 +5,7 @@ export async function generateStaticParams() {
     res.json(),
   );
 
-  return data.posts.map((post: { id: number }) => ({
+  return data.posts.map((post: { id: string }) => ({
     slug: String(post.id),
   }));
 }

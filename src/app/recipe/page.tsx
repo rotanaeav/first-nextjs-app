@@ -1,7 +1,11 @@
-import React from 'react'
+import RecipeCardList from '@/components/recipe/RecipeCardList'
+import RecipeCard from '@/components/recipe/RecipeCardList'
+import React, { Suspense } from 'react'
 
 export default function page() {
   return (
-    <div>page</div>
+    <Suspense>
+        <RecipeCardList/>
+    </Suspense>
   )
 }

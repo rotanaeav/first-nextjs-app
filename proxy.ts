@@ -14,3 +14,6 @@ export function proxy(request: NextRequest) {
 export const config = {
   matcher: "/dashboard/:path*",
 };
+{/* proxy is support : 
+  NextRequest, NextResponse , cookies ,.. */}
+

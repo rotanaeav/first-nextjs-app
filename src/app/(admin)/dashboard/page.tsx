@@ -1,7 +1,12 @@
-import React from 'react'
+import SearchBar from "@/components/search/SearchBar";
+import React, { Suspense } from "react";
 
 export default function page() {
   return (
-    <div>page</div>
-  )
+    <>
+      <div>សួស្ដី Camdodia</div>
+
+      <SearchBar />
+    </>
+  );
 }

@@ -1,12 +1,12 @@
-'use client'
+export const instant = false;
 import { use } from "react";
 
-export default function ProductPage({
-  params
+export default async function ProductPage({
+  params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { id } = use(params);
+  const { id } = await params;
 
   return <p>Product : {id}</p>;
 }

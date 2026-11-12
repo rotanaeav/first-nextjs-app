@@ -1,56 +1,66 @@
-// export default function ProductCard() {
-//   // declare variable
-//   const image =
-//     "https://www.istorm.gr/cdn/shop/files/IMG-21452228_m_jpeg_1_ab294e06-48d6-4f4f-b0af-b8423ea0e9eb.jpg?v=1788983098&width=1920";
-//   const title = "Iphone 18 Pro Max";
-//   const description = "Iphone 18 is iphone latest of Apple .";
-//   const price = 999;
-//   return (
-//     <section className="w-[320px]">
-//       <img src={image} alt="" />
-//       <div className="bg-red-200 p-5">
-//         <h2>{title}</h2>
-//         <p>{description}</p>
-//         <div className="flex justify-between">
-//           <p>{price > 1000 ? price : 1000}$</p>
-//           <button>Add To Cart</button>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
+"use client";
 
 import { Product } from "@/lib/product";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Trash2 } from "lucide-react";
 
-export default function ProductCard(props: Product) {
+interface ProductCardProps extends Product {
+  onDelete?: () => void;
+  deleting?: boolean;
+}
+
+export default function ProductCard({
+  onDelete,
+  deleting,
+  ...props
+}: ProductCardProps) {
   return (
-    <section className="w-75 overflow-hidden rounded-2xl border border-gray-200 bg-white">
-      <img
-        src={props.image}
-        alt={props.title}
-        className="h-48 w-full object-cover"
-      />
-
-      <div className="space-y-4 p-5">
-        <h2 className="text-lg font-semibold tracking-tight text-gray-900">
-          {props.title}
-        </h2>
-
-        <p className="line-clamp-2 text-sm leading-6 text-gray-500">
-          {props.description}
-        </p>
-
-        <div className="flex items-center justify-between gap-4 border-t border-gray-100 pt-4">
-          <p className="text-xl font-bold text-gray-900">
-            ${props.price}
-            {/* ${props.price > 1000 ? props.price : 1000} */}
-          </p>
-
-          <button className="rounded-lg bg-gray-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-700 active:scale-95">
-            Add to Cart
-          </button>
-        </div>
+    <Card className="w-full max-w-xs overflow-hidden hover:shadow-md transition-shadow relative group">
+      <div className="overflow-hidden relative">
+        <img
+          src={props.image}
+          alt={props.title}
+          className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+        {onDelete && (
+          <Button
+            type="button"
+            variant="destructive"
+            size="icon-xs"
+            disabled={deleting}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onDelete();
+            }}
+            className="absolute top-3 right-3 opacity-90 hover:opacity-100 shadow-md"
+            title="Delete product via DELETE /api/products/[id]"
+          >
+            <Trash2 className="size-3.5" />
+          </Button>
+        )}
       </div>
-    </section>
+
+      <CardHeader className="p-4 pb-2">
+        <CardTitle className="text-base line-clamp-1">{props.title}</CardTitle>
+        <CardDescription className="line-clamp-2 text-xs">
+          {props.description}
+        </CardDescription>
+      </CardHeader>
+
+      <CardFooter className="flex items-center justify-between p-4 pt-2 border-t border-border/50">
+        <span className="text-lg font-bold tracking-tight">
+          ${props.price.toFixed(2)}
+        </span>
+        <Button size="xs" variant="outline">Details</Button>
+      </CardFooter>
+    </Card>
   );
 }

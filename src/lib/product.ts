@@ -1,12 +1,15 @@
 export type Product = {
+  id?: string;
   title: string;
   description: string;
   image: string;
   price: number;
 };
 
-export const Products: Product[] = [
+// Global in-memory product store
+export let Products: Product[] = [
   {
+    id: "1",
     title: "Classic Cheeseburger",
     description:
       "Juicy grilled beef patty topped with melted cheddar cheese, lettuce, tomato, pickles, sauce.",
@@ -15,6 +18,7 @@ export const Products: Product[] = [
     price: 8.99,
   },
   {
+    id: "2",
     title: "Bacon BBQ Burger",
     description:
       "Double crispy smash patties layered with smoky bacon, American cheese, crispy onion rings, sauce.",
@@ -23,6 +27,7 @@ export const Products: Product[] = [
     price: 11.5,
   },
   {
+    id: "3",
     title: "Spicy Chicken Burger",
     description:
       "Crispy fried buttermilk chicken breast tossed in hot cayenne glaze, topped with creamy.",
@@ -31,6 +36,7 @@ export const Products: Product[] = [
     price: 10.0,
   },
   {
+    id: "4",
     title: "Mushroom Swiss Burger",
     description:
       "Flame-grilled Angus beef topped with sautéed wild mushrooms, Swiss cheese.",
@@ -39,3 +45,35 @@ export const Products: Product[] = [
     price: 13.99,
   },
 ];
+
+export function getProductById(id: string): Product | undefined {
+  return Products.find(
+    (p) => p.id === id || p.title.toLowerCase().replace(/\s+/g, "-") === id,
+  );
+}
+
+export function addProduct(product: Omit<Product, "id"> & { id?: string }): Product {
+  const newProduct: Product = {
+    ...product,
+    id: product.id || String(Date.now()),
+  };
+  Products.unshift(newProduct);
+  return newProduct;
+}
+
+export function updateProduct(id: string, updates: Partial<Product>): Product | null {
+  const index = Products.findIndex(
+    (p) => p.id === id || p.title.toLowerCase().replace(/\s+/g, "-") === id,
+  );
+  if (index === -1) return null;
+  Products[index] = { ...Products[index], ...updates };
+  return Products[index];
+}
+
+export function deleteProduct(id: string): boolean {
+  const initialLength = Products.length;
+  Products = Products.filter(
+    (p) => p.id !== id && p.title.toLowerCase().replace(/\s+/g, "-") !== id,
+  );
+  return Products.length < initialLength;
+}

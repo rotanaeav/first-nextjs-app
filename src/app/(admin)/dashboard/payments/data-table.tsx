@@ -46,7 +46,7 @@ export function DataTable<TData extends RowData>({
 
   return (
     <div className="overflow-hidden rounded-md border">
-      <div className="flex items-center py-4">
+      <div className="flex items-center py-4 mx-2">
         <Input
           placeholder="Filter emails..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
@@ -59,7 +59,7 @@ export function DataTable<TData extends RowData>({
       <DropdownMenu>
         <DropdownMenuTrigger
           render={
-            <Button variant="outline" className="ml-auto">
+            <Button variant="outline" className="ml-2">
               Columns
             </Button>
           }

@@ -46,7 +46,7 @@ export default async function ProductDetailPage({
 
       <Card className="overflow-hidden p-0 border border-border shadow-lg">
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="relative h-72 md:h-full min-h-[340px] bg-muted overflow-hidden">
+          <div className="relative h-72 md:h-full min-h-85 bg-muted overflow-hidden">
             <img
               src={product.image}
               alt={product.title}

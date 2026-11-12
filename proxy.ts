@@ -1,6 +1,7 @@
+import { cookies } from "next/headers";
 import { NextResponse, NextRequest } from "next/server";
 export function proxy(request: NextRequest) {
-  const isAuthenticated = false;
+  const isAuthenticated = request.cookies.has('dummy-refreshToken');
 
   // If the user is authenticated, continue as normal
   if (isAuthenticated) {
